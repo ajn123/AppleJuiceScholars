@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  get 'articles/index'
+
+  get 'articles/show'
+
   get 'home/index'
 
   get 'home/show'
+
+  resources :articles
 
   root 'home#index'
 

@@ -4,6 +4,7 @@ class HomeController < ApplicationController
   end
 
   def show
+    @article = Article.find(params[:id])
   end
 
   def about
