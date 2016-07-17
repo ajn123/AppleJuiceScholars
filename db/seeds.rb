@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#
+#
+#
+#
+
+
+Article.destroy_all
+
+seed_file = File.join(Rails.root, 'db', 'seeds.yml')
+config = YAML::load_file(seed_file)
+Article.create(config["articles"])
