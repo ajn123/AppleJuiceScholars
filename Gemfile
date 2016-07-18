@@ -1,6 +1,14 @@
 source 'https://rubygems.org'
 
+gem 'dotenv-rails', :groups => [:development, :test]
 
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
+gem 'devise'
+
+gem 'redcarpet'
+
+gem 'coderay'
 
 gem 'friendly_id'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

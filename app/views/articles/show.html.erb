@@ -2,5 +2,5 @@
   <iframe class="embed-responsive-item" src="<%= @article.video_url %>"></iframe>
 </div>
 <p>
-  <%= @article.content %>
+  <%= markdown @article.content %>
 </p>
