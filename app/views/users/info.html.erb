@@ -1,7 +1,7 @@
 
 <div class="jumbotron">
     
-    <%= link_to "Change Email/Password", edit_user_registration_path, class: "btn pull-right btn-danger" %>
+    <%= link_to "Update Email/Password", edit_user_registration_path, class: "btn pull-right btn-info" %>
   <h1>
     <%= current_user.email %>
   </h1>
@@ -10,9 +10,11 @@
 </div>
 <div class="">
   <% if @subscription.active %>
-    <%= Time.at( @stripe_subscription["current_period_end"]).strftime("%D") %>
+   Your Subscription renews on: <%= Time.at( @stripe_subscription["current_period_end"]).strftime("%D") %>
 
+ <div class="">
     <%= link_to "Cancel Subscription", users_cancel_subscription_path, class: 'btn btn-danger' %>
+ </div>
   <% else %>
     <%= render 'form' %>
   <% end %>
