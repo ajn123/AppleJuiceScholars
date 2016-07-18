@@ -14,10 +14,10 @@
             
             <% if user_signed_in? %>
               <li>
-                <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+                <%= link_to current_user.email, users_info_path %>
               </li>
               <li>
-                <%= link_to current_user.email, users_info_path %>
+                <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
               </li>
             <% else %>
               <li>

@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     token = params['stripeToken']
     customer = Stripe::Customer.create(
       source: token,
-      plan:  'startSubscription',
+      plan: 'startSubscription',
       email: current_user.email
     )
 

@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718041457) do
+ActiveRecord::Schema.define(version: 20160718131658) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "video_url"
     t.string   "name"
     t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "slug"
+    t.boolean  "premium",    default: false, null: false
   end
 
   add_index "articles", ["slug"], name: "index_articles_on_slug", unique: true
