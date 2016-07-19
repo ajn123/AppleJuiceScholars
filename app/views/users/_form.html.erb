@@ -33,8 +33,24 @@
   </div>
 
   <div class="row">
-    <br/><button class="btn btn-primary" type="submit">Create Subscription</button>
-    <%= link_to image_tag("big.png"), "https://stripe.com/" %>
+    <div class="col-xs-4">
+    
+      <br/><button class="btn btn-primary" type="submit">Create Subscription</button>
+    </div>
+    <div class="col-xs-4">
+      <br/>
+      <%= link_to image_tag("big.png"), "https://stripe.com/" %>
+    </div>
+    <div class="col-xs-4">
+      <br/>
+      <ul>
+        <li>Reasons To Subscribe:</li>
+        <li>More tutorials</li>
+        <li>Personal Contact with A.J.</li>
+        <li>Request Your own tutorials!</li>
+        <li>Open Source Help</li>
+      </ul>
+    </div>
   </div>
 
   <%= token_tag nil %>
