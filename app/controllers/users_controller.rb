@@ -13,9 +13,7 @@ class UsersController < ApplicationController
 
   def charge
     token = params['stripeToken']
-
     begin
-
     customer = Stripe::Customer.create(
       source: token,
       plan: 'startSubscription',
@@ -27,7 +25,6 @@ class UsersController < ApplicationController
       redirect_to users_info_path
       return
     end
-
 
     current_user.subscription.stripe_user_id = customer.id
     current_user.subscription.active = true 
@@ -44,6 +41,8 @@ class UsersController < ApplicationController
     @stripe_subscription.delete(at_period_end: true) 
     current_user.subscription.active = false
     current_user.subscription.save
+
+    flash[:alert] = "You have canceled your subscription!"
 
     redirect_to users_info_path
   end

@@ -1,4 +1,10 @@
 articles:
-  - name: Hello
+  - name: Not Premium
     content: oeuueo
     video_url: https://www.youtube.com/embed/OQcKtouJoHg
+    premium: false
+
+  - name: Premium What is Gucci
+    content: Hello
+    video_url: https://www.youtube.com/embed/OQcKtouJoHg
+    premium: true

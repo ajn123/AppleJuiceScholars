@@ -4,7 +4,8 @@ class NewCreditCardForm
 
 
   def visit_page
-    visit(users_info_path)
+    visit("/users/info")
+    self
   end
 
 

@@ -19,4 +19,14 @@ class NewLoginForm
     fill_in('Password confirmation', with: 'password')
     self
   end
+
+  def login_as(user)  
+    visit("/")
+    click_on("Sign In")
+    fill_in('Email', with: user.email)
+    fill_in('Password', with: user.password)
+    click_on("Log in")
+    self
+  end
+
 end
