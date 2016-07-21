@@ -1,5 +1,4 @@
-
-<% if flash[:alert] %>
+<% if flash.now[:alert] %>
   <div class="jumbotron">
     <h1 class="text-center">
       This is Premium Content
@@ -8,9 +7,8 @@
       To view this, you can <%= link_to "Subscribe Here", users_info_path, class: "btn btn-info" %>
     </h3>
     <h2>
-      Bye for Now!
+      - Bye for Now!
     </h2>
-    
   </div>
 <% else %>
   <div class="embed-responsive embed-responsive-4by3">  

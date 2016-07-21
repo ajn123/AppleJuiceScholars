@@ -10,18 +10,16 @@ class UsersController < ApplicationController
     end
   end
 
-
   def charge
     token = params['stripeToken']
     begin
-    customer = Stripe::Customer.create(
-      source: token,
-      plan: 'startSubscription',
-      email: current_user.email
-    )
+      customer = Stripe::Customer.create(
+        source: token,
+        plan: 'startSubscription',
+        email: current_user.email
+      )
     rescue
-      flash[:alert] = "Your card was declined.  Please try again."
-
+      flash[:alert] = "Your card was declined. Please try again."
       redirect_to users_info_path
       return
     end

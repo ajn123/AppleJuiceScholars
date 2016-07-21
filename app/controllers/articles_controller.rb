@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
 
   def check_for_subscription
     unless user_signed_in? && current_user.subscription.active
-      flash[:alert] = "You must be subscribed to access this content"
+      flash.now[:alert] = "You must be subscribed to access this content"
     end
   end
 
