@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'will_paginate'
+
 gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'

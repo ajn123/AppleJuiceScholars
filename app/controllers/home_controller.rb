@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @articles = Article.all
+    @articles = Article.all.paginate(:page => params[:page])
   end
 
   def show
