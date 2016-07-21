@@ -1,9 +1,25 @@
-<div class="embed-responsive embed-responsive-4by3">
-  <iframe class="embed-responsive-item" src="<%= @article.video_url %>"></iframe>
-</div>
-<h1>
-  <%= @article.name %>
-</h1>
-<p>
-  <%= markdown @article.content %>
-</p>
+
+<% if flash[:alert] %>
+  <div class="jumbotron">
+    <h1 class="text-center">
+      This is Premium Content
+    </h1>
+    <h3>
+      To view this, you can <%= link_to "Subscribe Here", users_info_path, class: "btn btn-info" %>
+    </h3>
+    <h2>
+      Bye for Now!
+    </h2>
+    
+  </div>
+<% else %>
+  <div class="embed-responsive embed-responsive-4by3">  
+    <iframe class="embed-responsive-item" src="<%= @article.video_url %>"></iframe>
+  </div>
+  <h1>
+    <%= @article.name %>
+  </h1>
+  <p>
+    <%= markdown @article.content %>
+  </p>
+<% end %>

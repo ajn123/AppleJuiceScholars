@@ -5,11 +5,9 @@ require_relative "../support/new_credit_card_form"
 feature 'home page' do
   let(:sign_in_form) { NewLoginForm.new }
 
-
   let(:user) { FactoryGirl.create(:user) }
 
   let(:credit_card_form) { NewCreditCardForm.new }
-
 
   before(:each) do
     @article = FactoryGirl.create(:article)
@@ -26,7 +24,7 @@ feature 'home page' do
     click_on(@article.name)
     expect(page).to_not have_css('.alert')
   end
-  scenario 'Click Free content' do
+  scenario 'Click Premium content' do
     visit("/")
     click_on(@article_premium.name)
     expect(page).to have_css('.alert')
