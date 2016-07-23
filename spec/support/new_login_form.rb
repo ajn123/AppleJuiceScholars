@@ -7,7 +7,6 @@ class NewLoginForm
     self
   end
 
-
   def submit
     click_on('Sign up')
     self

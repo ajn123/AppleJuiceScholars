@@ -1,13 +1,10 @@
 class NewCreditCardForm
   include Capybara::DSL
 
-
-
   def visit_page
     visit("/users/info")
     self
   end
-
 
   def fill_in_with(params = {})
     fill_in("Card Number", with: "4242424242424242")
@@ -16,7 +13,6 @@ class NewCreditCardForm
     fill_in("YYYY", with: "2020")
     self
   end
-
 
   def submit
     click_on("Create Subscription")
