@@ -11,13 +11,3 @@
 #
 
 
-Article.destroy_all
-
-seed_file = File.join(Rails.root, 'db', 'seeds.yml')
-config = YAML::load_file(seed_file)
-Article.create(config["articles"])
-
-
-10.times do |i|
-  Article.create(name: "Article #{i}")
-end
