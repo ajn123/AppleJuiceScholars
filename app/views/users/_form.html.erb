@@ -34,7 +34,6 @@
 
   <div class="row">
     <div class="col-xs-4">
-    
       <br/><button class="btn btn-primary" type="submit">Create Subscription</button>
     </div>
     <div class="col-xs-4">
@@ -56,18 +55,10 @@
   <%= token_tag nil %>
 </form>
 
-
-
-
-
-
-
-
-
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
 <script type="text/javascript">
-  Stripe.setPublishableKey('pk_test_gz4WL5Zfvpz4gxW7uwemFbeP');
+  Stripe.setPublishableKey(<%= ENV['STRIPE_PUBLIC_KEY'] %>);
 
   function stripeResponseHandler(status, response) {
   // Grab the form:

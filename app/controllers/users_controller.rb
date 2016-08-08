@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     begin
       customer = Stripe::Customer.create(
         source: token,
-        plan: 'startSubscription',
+        plan: ENV['STRIPE_PLAN_ID'],
         email: current_user.email
       )
     rescue
