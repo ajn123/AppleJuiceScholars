@@ -1,7 +1,6 @@
 <h4>Begin your $5.00 a month subscription</h4>
 <form action="/users/charge" method="POST" id="payment-form">
   <span class="payment-errors"></span>
-
   <div class="row">
     <div class="col-md-6">
       <label>Card Number</label>
@@ -55,6 +54,7 @@
   <%= token_tag nil %>
 </form>
 
+<script src="https://checkout.stripe.com/checkout.js"></script>
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 
 <script type="text/javascript">
@@ -71,7 +71,6 @@
     $form.find('.submit').prop('disabled', false); // Re-enable submission
 
   } else { // Token was created!
-
     // Get the token ID:
     var token = response.id;
 
