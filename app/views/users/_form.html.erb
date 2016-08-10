@@ -55,11 +55,16 @@
 </form>
 
 <script src="https://checkout.stripe.com/checkout.js"></script>
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript" src="https://js.stripe.com/v2/">
 
-<script type="text/javascript">
+$(function(){
+
   Stripe.setPublishableKey("<%= ENV['STRIPE_PUBLIC_KEY'] %>");
 
+});
+
+</script>
+<script type="text/javascript">
   function stripeResponseHandler(status, response) {
   // Grab the form:
   var $form = $('#payment-form');
