@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
+  attr_accessor :stripe_card_token
 
   def info
     @subscription = current_user.subscription
@@ -16,7 +17,8 @@ class UsersController < ApplicationController
       customer = Stripe::Customer.create(
         source: token,
         plan: ENV['STRIPE_PLAN_ID'],
-        email: current_user.email
+        email: current_user.email,
+
       )
     rescue
       flash[:alert] = "Your card was declined. Please try again."
@@ -44,6 +46,5 @@ class UsersController < ApplicationController
 
     redirect_to users_info_path
   end
-
 
 end

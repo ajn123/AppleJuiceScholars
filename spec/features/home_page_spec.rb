@@ -5,7 +5,7 @@ require_relative "../support/new_credit_card_form"
 feature 'home page' do
   let(:sign_in_form) { NewLoginForm.new }
 
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.build(:user) }
 
   let(:credit_card_form) { NewCreditCardForm.new }
 
@@ -24,6 +24,7 @@ feature 'home page' do
     click_on(@article.name)
     expect(page).to_not have_css('.alert')
   end
+
   scenario 'Click Premium content' do
     visit("/")
     click_on(@article_premium.name)
@@ -44,26 +45,29 @@ feature 'home page' do
 
   feature "log in" do
     before do
-      sign_in_form.login_as(user)
+      sign_in_form.visit_page.fill_in_with(email: user.email).submit
     end
 
-    scenario "Sign in" do
+    scenario "Sign in", js: true do
       expect(page).to have_content("@email.com")
     end
 
-    feature "Credit Card" do
+    feature "Credit Card", js: true do
 
-      before do
-        credit_card_form.visit_page.fill_in_with.submit
+      scenario 'Illegal Credit Card' do
+        credit_card_form.visit_page(user).fill_in_with(card_number: "4000000000000127").submit
+        expect(page).to have_css(".alert")
       end
 
       scenario "Register Credit Card" do
-        expect(page).to have_content("Cancel Subscription")
+       credit_card_form.visit_page(user).fill_in_with.submit
+       expect(page).to have_content("Cancel Subscription")
       end
 
       scenario "Cancel Credit Card" do
-        click_on("Cancel Subscription")
-        expect(page).to have_css(".alert")
+       credit_card_form.visit_page(user).fill_in_with.submit
+       click_on("Cancel Subscription")
+       expect(page).to have_css(".alert")
       end
 
    end

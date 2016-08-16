@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
+gem 'database_cleaner'
+
 gem 'jquery-turbolinks'
 
+gem 'launchy'
 
 gem 'metadown'
 
@@ -62,6 +65,7 @@ group :development, :test do
 end
 group :test do
   gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 group :development do

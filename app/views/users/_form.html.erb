@@ -54,17 +54,27 @@
   <%= token_tag nil %>
 </form>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 <script src="https://checkout.stripe.com/checkout.js"></script>
+<script type="text/javascript" src="https://js.stripe.com/v2/">
 <script type="text/javascript" src="https://js.stripe.com/v2/">
 
 $(function(){
-
-  Stripe.setPublishableKey("<%= ENV['STRIPE_PUBLIC_KEY'] %>");
-
+  <% if Rails.env.production? %>
+    Stripe.setPublishableKey("<%= ENV['STRIPE_PUBLIC_KEY'] %>");
+  <% else %>
+    Stripe.setPublishableKey("<%= ENV['STRIPE_TEST_PUBLIC'] %>");
+  <% end %>
 });
 
 </script>
 <script type="text/javascript">
+  <% if Rails.env.production? %>
+    Stripe.setPublishableKey("<%= ENV['STRIPE_PUBLIC_KEY'] %>");
+  <% else %>
+    Stripe.setPublishableKey("<%= ENV['STRIPE_TEST_PUBLIC'] %>");
+  <% end %>
   function stripeResponseHandler(status, response) {
   // Grab the form:
   var $form = $('#payment-form');
@@ -100,9 +110,6 @@ $(function() {
       return false;
     });
 });
-
-
-
 
 </script>
 
