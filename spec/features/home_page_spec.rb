@@ -43,18 +43,28 @@ feature 'home page' do
     expect(page).to have_content("Password confirmation doesn't match Password Email Password")
   end
 
+    scenario 'sign out then sign in', js: true do
+      sign_in_form.visit_page.fill_in_with(email: user.email).submit
+      click_on('Sign Out')
+      visit('/')
+      sign_in_form.login_as(user)
+      click_on('Sign Out')
+      expect(page).to have_content('Sign Up')
+    end
+
   feature "log in" do
     before do
       sign_in_form.visit_page.fill_in_with(email: user.email).submit
     end
 
-    scenario "Sign in", js: true do
-      expect(page).to have_content("@email.com")
+    scenario "Sign in" do
+      expect(page).to have_content(user.email)
     end
 
     feature "Credit Card", js: true do
 
       scenario 'Illegal Credit Card' do
+        # Testing stripe illegal card
         credit_card_form.visit_page(user).fill_in_with(card_number: "4000000000000127").submit
         expect(page).to have_css(".alert")
       end

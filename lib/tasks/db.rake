@@ -4,7 +4,7 @@ namespace :db do
 
     puts Dir.pwd
     a = File.join("lib", "assets", "articles", "*.md")
-    Dir.glob(a).each do |file|
+    Dir.glob(a).reject { |name| /.*(template|NEW_ARTICLE).*/ =~ name }.each do |file|
       puts file
       File.open(file, "r") do |f|
         contents = f.read
@@ -23,6 +23,8 @@ namespace :db do
   end
 
   task new_blog: :environment do
+    cp 'lib/assets/articles/template.md', "lib/assets/articles/NEW_ARTICLE#{Time.now.strftime("%s")}.md"
+    puts 'new article created!'
     
   end
 end

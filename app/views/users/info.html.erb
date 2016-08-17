@@ -1,17 +1,23 @@
 
 <div class="jumbotron">
     <%= link_to "Update Email/Password", edit_user_registration_path, class: "btn pull-right btn-info" %>
-  <h1>
+  <h2>
     <%= current_user.email %>
-  </h1>
+  </h2>
 
 </div>
 
 <div class="">
   <% if @subscription.active %>
-   Your Subscription renews on: <%= Time.at( @stripe_subscription["current_period_end"]).strftime("%D") %>
+    <h3 class="text-center">
+      Your Subscription renews on: <%= Time.at( @stripe_subscription["current_period_end"]).strftime("%D") %>
+    </h3>
 
-    <div class="">
+    <p class="">
+      Thank you for supporting this website and my tutoring service.  It means a great deal to me and I will do the best to give it back!
+    </p>
+
+    <div class="pull-right">
         <%= link_to "Cancel Subscription", users_cancel_subscription_path, class: 'btn btn-danger' %>
     </div>
   <% else %>
