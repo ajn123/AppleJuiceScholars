@@ -10,7 +10,7 @@ Have a Question? Comment below!
                */
     
 var disqus_config = function () {
-  this.page.url = "<%= url_for [@article, {only_url: false }] %>";  // Replace PAGE_URL with your page's canonical URL variable
+  this.page.url = "<%= article_url(@article) %>";  // Replace PAGE_URL with your page's canonical URL variable
   this.page.identifier = "<%= @article.id %>"; // Rur page's unique identifier variable
   };
                                    
