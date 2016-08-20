@@ -1,6 +1,6 @@
 ---
 video_url: https://www.youtube.com/embed/Cj1FhPy9sz4
-name: "hello everyone"
+name: "Devise For Rails - Part 2"
 premium: false
 ---
-hello world
+Hope you enjoy the video.
