@@ -11,16 +11,18 @@
     </h2>
   </div>
 <% else %>
-  <div class="embed-responsive embed-responsive-4by3">  
-    <iframe class="embed-responsive-item" src="<%= @article.video_url %>"></iframe>
-  </div>
+  <% if @article.valid_video? %>
+    <div class="embed-responsive embed-responsive-4by3">  
+      <iframe class="embed-responsive-item" src="<%= @article.video_url %>"></iframe>
+    </div>
+  <% end %>
 
   <h1>
     <%= @article.name %>
   </h1>
-  <p>
-    <%= markdown @article.content %>
-  </p>
+  <div>
+    <%= @article.content.html_safe %>
+  </div>
   <div class="">
     <%= render 'disqus' %>
   </div>

@@ -15,7 +15,8 @@ namespace :db do
         Article.create!(name: md["name"], 
                         premium: md["premium"], 
                         video_url: md["video_url"],
-                        content: markdown.output)
+                        content: markdown.output,
+                        published_at: Date.parse(md['published_at']) )
       end
     end
     
@@ -25,6 +26,5 @@ namespace :db do
   task new_blog: :environment do
     cp 'lib/assets/articles/template.md', "lib/assets/articles/NEW_ARTICLE#{Time.now.strftime("%s")}.md"
     puts 'new article created!'
-    
   end
 end

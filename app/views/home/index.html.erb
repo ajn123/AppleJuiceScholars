@@ -10,7 +10,7 @@
 
       <div class="row">
         
-<% @articles.each do |article| %>
+<% @articles.order("published_at DESC").each do |article| %>
       <%= link_to  article do %>
   <div class="jumbotron">
 
@@ -26,11 +26,13 @@
       </h2>
     </div>
 
-    <div class="embed-responsive embed-responsive-4by3 row">
-      <iframe class="embed-responsive-item" src="<%= article.video_url %>"></iframe>
-    </div>
+    <% if article.valid_video? %>
+      <div class="embed-responsive embed-responsive-4by3 row">
+        <iframe class="embed-responsive-item" src="<%= article.video_url %>"></iframe>
+      </div>
+    <% end %>
     <h3>
-      Authored By: A.J. Norton
+      Authored By: A.J. Norton on <%= article.published_at %>
     </h3>
   </div>
   <% end %>
