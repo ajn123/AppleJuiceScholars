@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.2.1"
+
 gem 'database_cleaner'
 
 gem 'jquery-turbolinks'
@@ -14,7 +16,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
-gem 'devise'
+gem 'devise', source: "https://github.com/plataformatec/devise.git"
 
 gem 'redcarpet'
 
@@ -77,4 +79,3 @@ group :development do
 end
 
 gem 'rails_12factor', group: :production
-ruby "2.2.1"

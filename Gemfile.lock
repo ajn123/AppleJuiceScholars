@@ -7,6 +7,7 @@ GIT
 
 GEM
   remote: https://rubygems.org/
+  remote: https://github.com/plataformatec/devise.git/
   specs:
     actionmailer (4.2.6)
       actionpack (= 4.2.6)
@@ -254,7 +255,7 @@ DEPENDENCIES
   coderay
   coffee-rails (~> 4.1.0)
   database_cleaner
-  devise
+  devise!
   dotenv-rails
   factory_girl_rails
   friendly_id

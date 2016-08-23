@@ -1,5 +1,5 @@
 ---
-video_url: https://www.youtube.com/embed/Cj1FhPy9sz4
+video_url: https://www.youtube.com/embed/OQcKtouJoHg 
 name: "Devise For Rails - Part 2"
 premium: false
 published_at: 21/08/2016 
