@@ -25,6 +25,7 @@ rake db:migrate:status  # Display status of migrations
 
 Modify existing tables
 * rails generate migration add_XXX_to_TABLENAME
+
 * rails generate migration remove_XXX_from_TABLENAME  
 
 ### More Helpful Resources
