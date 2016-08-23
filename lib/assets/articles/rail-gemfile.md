@@ -1,5 +1,5 @@
 ---
-video_url: URL_HERE 
+video_url: https://www.youtube.com/embed/bpeqyVkbMGs
 name: "How Gemfiles Work in Rails"
 premium: false
 published_at: 22-8-2016
