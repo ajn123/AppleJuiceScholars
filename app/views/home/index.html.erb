@@ -15,12 +15,16 @@
   <div class="jumbotron">
 
     <div class="row">
+      <% if article.premium %>
+        <div class="btn btn-warning pull-left">
+          Premium
+        </div>
+      <% end %>
       <div class="btn btn-info pull-right">
           <%= time_ago_in_words article.published_at %>
       </div>
     </div>
     <div class="row">
-      
       <h2>
         <%= article.name %>
       </h2>
