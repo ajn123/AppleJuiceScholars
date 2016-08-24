@@ -1,3 +1,6 @@
+require "#{Rails.root}/app/helpers/application_helper"
+include ApplicationHelper
+
 namespace :db do
   task populate: :environment do
     Article.destroy_all
@@ -5,17 +8,18 @@ namespace :db do
     puts Dir.pwd
     a = File.join("lib", "assets", "articles", "*.md")
     Dir.glob(a).reject { |name| /.*(template|NEW_ARTICLE).*/ =~ name }.each do |file|
-      puts file
       File.open(file, "r") do |f|
         contents = f.read
-        markdown = Metadown.render(contents)
-        puts markdown.metadata
-        md = markdown.metadata
-        puts markdown.output
+        mkdown = Metadown.render(contents)
+        md = mkdown.metadata
+        
+        unrendered_content = contents.sub(/^---(\n|.)*---/, '')
+        puts unrendered_content
+
         Article.create!(name: md["name"], 
                         premium: md["premium"], 
                         video_url: md["video_url"],
-                        content: markdown.output,
+                        content: markdown(unrendered_content),
                         published_at: Date.parse(md['published_at']) )
       end
     end

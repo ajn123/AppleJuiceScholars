@@ -16,4 +16,16 @@ feature 'metadown' do
     })
     expect(data.metadata).to eq({"key" =>12})
   end
+  
+  scenario "Get Meta Data - No Styling" do
+    data = Metadown.render(%Q{
+---\n
+ key: 12\n
+---\n
+ Hello World!
+   })
+    expect(data.output).to eq("<p>Hello World!</p>\n")
+  end
+
+
 end
