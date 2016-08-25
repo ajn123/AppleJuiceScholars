@@ -1,5 +1,5 @@
 ---
-video_url: URL_HERE 
+video_url: https://www.youtube.com/embed/p6QeaDMZkV8
 name: "Intro to Tmux"
 premium: false
 published_at: 24-08-2016
