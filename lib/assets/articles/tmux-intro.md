@@ -23,7 +23,7 @@ tmux ls # list all you detached sessions
 ## Commands in Tmux
 Once you have entered Tmux, you now have the ability to make panes.  You do so with the leading key, with by defaul is Control B (Ctrl-B, know as C-b below)
 
-```ruby
+```bash
 C-b " # split the pane vertically
 
 C-b % # split the pan horizontally
